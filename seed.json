@@ -1,0 +1,47 @@
+[
+  {
+    "id": "1728555814123",
+    "description": "Lunch at main cafeteria",
+    "amount": 12.50,
+    "category": "Food",
+    "date": "2025-10-10",
+    "createdAt": "2025-10-10T14:03:34.123Z",
+    "updatedAt": "2025-10-10T14:03:34.123Z"
+  },
+  {
+    "id": "1728469414123",
+    "description": "Advanced JavaScript Textbook",
+    "amount": 89.99,
+    "category": "Books",
+    "date": "2025-10-09",
+    "createdAt": "2025-10-09T12:03:34.123Z",
+    "updatedAt": "2025-10-09T12:03:34.123Z"
+  },
+  {
+    "id": "1728383014123",
+    "description": "Monthly bus pass",
+    "amount": 45.00,
+    "category": "Transport",
+    "date": "2025-10-01",
+    "createdAt": "2025-10-08T10:03:34.123Z",
+    "updatedAt": "2025-10-08T10:03:34.123Z"
+  },
+  {
+    "id": "1728296614123",
+    "description": "Coffee with friends",
+    "amount": 8.75,
+    "category": "Entertainment",
+    "date": "2025-10-07",
+    "createdAt": "2025-10-07T08:03:34.123Z",
+    "updatedAt": "2025-10-07T08:03:34.123Z"
+  },
+  {
+    "id": "1728210214123",
+    "description": "University lab fees",
+    "amount": 150.00,
+    "category": "Fees",
+    "date": "2025-09-15",
+    "createdAt": "2025-09-15T14:03:34.123Z",
+    "updatedAt": "2025-09-15T14:03:34.123Z"
+  }
+]

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Finance Tracker</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/main.js" type="module"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
+</head>
+<body>
+   
+    <header>
+        <h1>FAP SHI</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><button id="nav-dashboard" class="nav-btn active" data-section="dashboard">Dashboard</button></li>
+            <li><button id="nav-records" class="nav-btn" data-section="records">Records</button></li>
+            <li><button id="nav-add" class="nav-btn" data-section="add">Add Transaction</button></li>
+            <li><button id="nav-search" class="nav-btn" data-section="search">Search</button></li>
+            <li><button id="nav-settings" class="nav-btn" data-section="settings">Settings</button></li>
+            <li><button id="nav-about" class="nav-btn" data-section="about">About</button></li>
+        </ul>
+    </nav>
+
+    <main id="main-content">
+        <div role="status" aria-live="polite" aria-atomic="true" class="sr-only" id="status-message"></div>
+        <div role="alert" aria-live="assertive" aria-atomic="true" class="sr-only" id="alert-message"></div>
+
+        <section id="dashboard" class="active">
+            <h2>Dashboard</h2>
+            <div id="budget-status"></div>
+            <div class="stats-grid">
+                <div class="stat-card"><h3>Total Transactions</h3><div class="stat-value" id="stat-count">0</div></div>
+                <div class="stat-card"><h3>Total Spent</h3><div class="stat-value" id="stat-total">$0.00</div></div>
+                <div class="stat-card"><h3>Top Category</h3><div class="stat-value" id="stat-top-category">-</div></div>
+                <div class="stat-card"><h3>Last 7 Days</h3><div class="stat-value" id="stat-week">$0.00</div></div>
+            </div>
+            <h3>Recent Transactions</h3>
+            <div id="recent-transactions"></div>
+        </section>
+
+        <section id="records">
+            <h2>All Transactions</h2>
+            <div style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+                <button id="export-json-btn">Export JSON</button>
+                <button id="export-csv-btn">Export CSV</button>
+                <button id="import-btn" class="secondary">Import JSON</button>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+            <div class="table-container">
+                <table id="transactions-table">
+                    <thead>
+                        <tr>
+                            <th tabindex="0" data-sort="date">Date ↕</th>
+                            <th tabindex="0" data-sort="description">Description ↕</th>
+                            <th tabindex="0" data-sort="category">Category ↕</th>
+                            <th tabindex="0" data-sort="amount">Amount ↕</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="transaction-cards" id="transaction-cards"></div>
+        </section>
+
+        <section id="add">
+            <h2>Add Transaction</h2>
+            <form id="transaction-form" novalidate>
+                <input type="hidden" id="editing-id">
+                <div class="form-group">
+                    <label for="description">Description *</label>
+                    <input type="text" id="description" required aria-describedby="description-error">
+                    <div id="description-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount (in USD) *</label>
+                    <input type="text" id="amount" required aria-describedby="amount-error" placeholder="0.00">
+                    <div id="amount-error" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="category">Category *</label>
+                    <select id="category" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Date *</label>
+                    <input type="date" id="date" required aria-describedby="date-error">
+                    <div id="date-error" class="error-message"></div>
+                </div>
+                <button type="submit">Add Transaction</button>
+                <button type="button" id="cancel-edit" class="secondary" style="display: none;">Cancel Edit</button>
+            </form>
+        </section>
+
+        <section id="search">
+            <h2>Regex Search</h2>
+            <div class="search-controls">
+                <div class="form-group"><label for="search-pattern">Regex Pattern</label><input type="text" id="search-pattern" placeholder="/\.\d{2}\b/" aria-describedby="search-error"><div id="search-error" class="error-message"></div></div>
+                <div class="checkbox-group"><input type="checkbox" id="case-insensitive"><label for="case-insensitive">Case Insensitive</label></div>
+            </div>
+            <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 500;">Example Patterns</summary><ul style="margin-top: 0.5rem; color: var(--text-light);"><li><code>/\.\d{2}\b/</code> - Amounts with cents</li><li><code>/(coffee|tea)/i</code> - Coffee or tea</li><li><code>/\b(\w+)\s+\1\b/</code> - Duplicate words</li></ul></details>
+            <div id="search-results"></div>
+        </section>
+
+        <section id="settings">
+            <h2>Settings</h2>
+            <h3>Appearance</h3>
+            <button id="theme-toggle-btn">Toggle Dark/Light Mode</button>
+            
+            <h3>Currency Conversion</h3>
+            <div class="form-group">
+                <label for="currency-select">Display Currency</label>
+                <select id="currency-select">
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="GBP">GBP (£)</option>
+                    <option value="RWF">Rwandan Franc (RWF)</option>
+                    <option value="XAF">CFA Franc (XAF)</option>
+                    <option value="KES">Kenyan Shilling (KES)</option>
+                    <option value="NGN">Nigerian Naira (NGN)</option>
+                </select>
+            </div>
+            <div class="form-group"><label for="rate-eur">1 USD to EUR Rate</label><input type="number" id="rate-eur" step="0.01"></div>
+            <div class="form-group"><label for="rate-gbp">1 USD to GBP Rate</label><input type="number" id="rate-gbp" step="0.01"></div>
+            <div class="form-group"><label for="rate-rwf">1 USD to RWF Rate</label><input type="number" id="rate-rwf" step="1"></div>
+            <div class="form-group"><label for="rate-xaf">1 USD to XAF Rate</label><input type="number" id="rate-xaf" step="1"></div>
+            <div class="form-group"><label for="rate-kes">1 USD to KES Rate</label><input type="number" id="rate-kes" step="1"></div>
+            <div class="form-group"><label for="rate-ngn">1 USD to NGN Rate</label><input type="number" id="rate-ngn" step="1"></div>
+            
+            <h3>Spending Cap</h3>
+            <div class="form-group"><label for="spending-cap">Monthly Budget (in USD)</label><input type="number" id="spending-cap" step="10"></div>
+            
+            <h3>Manage Categories</h3>
+            <div id="categories-list"></div>
+            <div class="form-group"><label for="new-category">Add New Category</label><input type="text" id="new-category" aria-describedby="category-error"><div id="category-error" class="error-message"></div></div>
+            <button id="add-category-btn">Add Category</button>
+            
+            <div style="margin-top: 2rem;"><button id="save-settings-btn">Save Settings</button></div>
+        </section>
+
+        <section id="about">
+            <h2>About Student Finance Tracker</h2>
+            <p>This application helps students track their expenses, manage budgets, and gain insights into spending patterns. It is built entirely with vanilla HTML, CSS, and JavaScript, focusing on performance, accessibility, and clean code.</p>
+            <h3>Contact</h3>
+            <p>
+  <strong>GitHub:</strong> 
+  <a href="https://github.com/NkemJefersonAchia" target="_blank">NkemJefersonAchia</a><br>
+  <strong>Email:</strong> 
+  <a href="mailto:nkemachia05@gmail.com">nkemachia05@gmail.com</a>
+</p>
+
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            &copy; 2025 Nkem Jeferson Achia
+            <br>
+            <a href="https://github.com/NkemJefersonAchia" target="_blank">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+            alt="GitHub" width="20" style="margin-left: 8px; vertical-align: middle;">
+            </a>
+        </p>
+
+    </footer>
+
+    <div id="delete-modal" class="modal" role="dialog" aria-labelledby="delete-modal-title" aria-modal="true">
+        <div class="modal-content">
+            <h2 id="delete-modal-title">Confirm Delete</h2>
+            <p>Are you sure you want to delete this transaction? This action cannot be undone.</p>
+            <div class="modal-actions">
+                <button id="confirm-delete" class="danger">Delete</button>
+                <button id="cancel-delete" class="secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
