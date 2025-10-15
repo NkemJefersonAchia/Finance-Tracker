@@ -18,6 +18,36 @@ A lightweight, accessible, and responsive web application for tracking personal 
 * **Dark/Light Theme**: Toggle between themes, with the preference saved locally.
 * **Offline First**: A service worker caches the application shell for offline access.
 
+## Setup Guide
+
+To run this project locally, follow these steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/NkemJefersonAchia/finance-tracker.git](https://github.com/NkemJefersonAchia/finance-tracker.git)
+    ```
+2.  **Navigate to the project directory:**
+    ```bash
+    cd finance-tracker
+    ```
+3.  **Open `index.html` in your browser:**
+    You can simply open the file directly, or use a live server extension in your code editor for automatic reloading.
+
+## Testing Instructions
+
+This project is built with vanilla JavaScript and does not have an automated testing suite. To test the functionality:
+
+1.  **Manual Testing:**
+    * Try adding, editing, and deleting transactions.
+    * Test all form validations, including the regex patterns.
+    * Import and export data using the provided JSON and CSV buttons.
+    * Verify that data persists after reloading the page.
+    * Test the search functionality with different regex patterns.
+    * Check responsiveness by resizing your browser window.
+
+2.  **Linting & Formatting:**
+    * Code quality can be checked using tools like ESLint and Prettier.
+
 ## Regex Catalog
 
 The application uses several regular expressions for form validation and search:

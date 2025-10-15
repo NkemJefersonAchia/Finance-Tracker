@@ -43,5 +43,50 @@
     "date": "2025-09-15",
     "createdAt": "2025-09-15T14:03:34.123Z",
     "updatedAt": "2025-09-15T14:03:34.123Z"
+  },
+  {
+    "id": "1728123814123",
+    "description": "Snacks from vending machine",
+    "amount": 2.25,
+    "category": "Food",
+    "date": "2025-10-11",
+    "createdAt": "2025-10-11T18:03:34.123Z",
+    "updatedAt": "2025-10-11T18:03:34.123Z"
+  },
+  {
+    "id": "1728037414123",
+    "description": "Movie ticket - Sci-Fi marathon",
+    "amount": 25.00,
+    "category": "Entertainment",
+    "date": "2025-10-05",
+    "createdAt": "2025-10-05T20:30:00.123Z",
+    "updatedAt": "2025-10-05T20:30:00.123Z"
+  },
+  {
+    "id": "1727951014123",
+    "description": "Stationery supplies (pens, notebooks)",
+    "amount": 18.50,
+    "category": "Other",
+    "date": "2025-10-02",
+    "createdAt": "2025-10-02T11:45:10.123Z",
+    "updatedAt": "2025-10-02T11:45:10.123Z"
+  },
+  {
+    "id": "1727864614123",
+    "description": "Semester tuition fee payment",
+    "amount": 1250.00,
+    "category": "Fees",
+    "date": "2025-08-30",
+    "createdAt": "2025-08-30T09:00:00.000Z",
+    "updatedAt": "2025-08-30T09:00:00.000Z"
+  },
+  {
+    "id": "1727778214123",
+    "description": "A very long description for testing the the UI text wrapping and overflow handling",
+    "amount": 0.99,
+    "category": "Other",
+    "date": "2025-09-30",
+    "createdAt": "2025-09-30T15:10:05.123Z",
+    "updatedAt": "2025-09-30T15:10:05.123Z"
   }
 ]
