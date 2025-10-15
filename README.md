@@ -1,4 +1,4 @@
-# Zenith Finance - Student Finance Tracker
+# FAPSHI - Student Finance Tracker
 
 A lightweight, accessible, and responsive web application for tracking personal finances, built with vanilla HTML, CSS, and JavaScript. This project fulfills the requirements of the "Building Responsive UI" summative assignment.
 

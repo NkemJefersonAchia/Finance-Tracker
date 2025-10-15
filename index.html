@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Finance Tracker</title>
     <link rel="stylesheet" href="styles/main.css">
-    <script src="scripts/main.js" type="module"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cardo&display=swap" rel="stylesheet">
-    <link rel="icon" href="/fapshi.png" type="image/x-icon">
+    <link rel="icon" href="fapshi.png" type="image/x-icon">
 </head>
 <body>
-   <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <header class="main-header">
         <div class="header-content">
@@ -47,7 +46,7 @@
 
         <section id="records">
             <h2>All Transactions</h2>
-            <div style="margin-bottom: 1rem; display: flex; gap: 0.5rem;">
+            <div class="records-controls">
                 <button id="export-json-btn">Export JSON</button>
                 <button id="export-csv-btn">Export CSV</button>
                 <button id="import-btn" class="secondary">Import JSON</button>
@@ -101,10 +100,24 @@
         <section id="search">
             <h2>Regex Search</h2>
             <div class="search-controls">
-                <div class="form-group"><label for="search-pattern">Regex Pattern</label><input type="text" id="search-pattern" placeholder="/\.\d{2}\b/" aria-describedby="search-error"><div id="search-error" class="error-message"></div></div>
-                <div class="checkbox-group"><input type="checkbox" id="case-insensitive"><label for="case-insensitive">Case Insensitive</label></div>
+                <div class="form-group">
+                    <label for="search-pattern">Regex Pattern</label>
+                    <input type="text" id="search-pattern" placeholder="/\.\d{2}\b/" aria-describedby="search-error">
+                    <div id="search-error" class="error-message"></div>
+                </div>
+                <div class="checkbox-group">
+                    <input type="checkbox" id="case-insensitive">
+                    <label for="case-insensitive">Case Insensitive</label>
+                </div>
             </div>
-            <details style="margin-bottom: 1rem;"><summary style="cursor: pointer; font-weight: 500;">Example Patterns</summary><ul style="margin-top: 0.5rem; color: var(--text-light);"><li><code>/\.\d{2}\b/</code> - Amounts with cents</li><li><code>/(coffee|tea)/i</code> - Coffee or tea</li><li><code>/\b(\w+)\s+\1\b/</code> - Duplicate words</li></ul></details>
+            <details class="example-patterns">
+                <summary>Example Patterns</summary>
+                <ul>
+                    <li><code>/\.\d{2}\b/</code> - Amounts with cents</li>
+                    <li><code>/(coffee|tea)/i</code> - Coffee or tea</li>
+                    <li><code>/\b(\w+)\s+\1\b/</code> - Duplicate words</li>
+                </ul>
+            </details>
             <div id="search-results"></div>
         </section>
 
@@ -138,10 +151,16 @@
             
             <h3>Manage Categories</h3>
             <div id="categories-list"></div>
-            <div class="form-group"><label for="new-category">Add New Category</label><input type="text" id="new-category" aria-describedby="category-error"><div id="category-error" class="error-message"></div></div>
+            <div class="form-group">
+                <label for="new-category">Add New Category</label>
+                <input type="text" id="new-category" aria-describedby="category-error">
+                <div id="category-error" class="error-message"></div>
+            </div>
             <button id="add-category-btn">Add Category</button>
             
-            <div style="margin-top: 2rem;"><button id="save-settings-btn">Save Settings</button></div>
+            <div class="save-settings-container">
+                <button id="save-settings-btn">Save Settings</button>
+            </div>
         </section>
 
         <section id="about">
@@ -149,12 +168,11 @@
             <p>This application helps students track their expenses, manage budgets, and gain insights into spending patterns. It is built entirely with vanilla HTML, CSS, and JavaScript, focusing on performance, accessibility, and clean code.</p>
             <h3>Contact</h3>
             <p>
-  <strong>GitHub:</strong> 
-  <a href="https://github.com/NkemJefersonAchia" target="_blank">NkemJefersonAchia</a><br>
-  <strong>Email:</strong> 
-  <a href="mailto:nkemachia05@gmail.com">nkemachia05@gmail.com</a>
-</p>
-
+                <strong>GitHub:</strong> 
+                <a href="https://github.com/NkemJefersonAchia" target="_blank">NkemJefersonAchia</a><br>
+                <strong>Email:</strong> 
+                <a href="mailto:nkemachia05@gmail.com">nkemachia05@gmail.com</a>
+            </p>
         </section>
     </main>
 
@@ -163,11 +181,10 @@
             &copy; 2025 Nkem Jeferson Achia
             <br>
             <a href="https://github.com/NkemJefersonAchia" target="_blank">
-            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
-            alt="GitHub" width="20" style="margin-left: 8px; vertical-align: middle;">
+                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" 
+                alt="GitHub" width="20" style="margin-left: 8px; vertical-align: middle;" loading="lazy">
             </a>
         </p>
-
     </footer>
 
     <div id="delete-modal" class="modal" role="dialog" aria-labelledby="delete-modal-title" aria-modal="true">
@@ -180,7 +197,6 @@
             </div>
         </div>
     </div>
-
-    
+    <script src="scripts/main.js" type="module" defer></script>
 </body>
 </html>
