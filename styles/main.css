@@ -47,27 +47,30 @@ mark {
 }
 
 /* ---------- Header ---------- */
-header {
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
-  padding: 1rem;
-  box-shadow: 0 1px 3px var(--shadow);
-  font-family: 'Cardo', serif;
-  font-size: large;
-}
+nav header {
+  background: var(--surface); 
+  
 
-header h1 {
-  font-size: 1.5rem;
+  background-size: cover; 
+  background-position: center; 
+  min-height: 100px; 
+  color: white;
+}
+nav header h1 {
+  font-size: 3rem;
   color: var(--primary);
+  text-indent: 4px;
+  text-align: center;
 }
 
 /* ---------- Navigation ---------- */
 nav {
   background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  
   padding: 0.5rem 1rem;
   font-family: 'Cardo', serif;
   font-size: large;
+  align-items: center;
 }
 
 nav ul {
@@ -75,6 +78,7 @@ nav ul {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+
 }
 
 nav button {
