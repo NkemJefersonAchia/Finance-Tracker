@@ -50,6 +50,9 @@ body {
   line-height: 1.6;
   transition: var(--transition);
 }
+body.nav-open .about-link {
+    display: none;
+}
 h1, h2, h3 { font-weight: var(--header-font-weight); margin: 0; }
 a { color: var(--accent); text-decoration: none; }
 img { max-width: 100%; display: block; }

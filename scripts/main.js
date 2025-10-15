@@ -8,7 +8,20 @@ import { renderDashboard, renderRecords, renderSettings, renderSearchResults, sh
 const form = document.getElementById('transaction-form');
 const nav = document.querySelector('nav ul');
 let deleteTargetId = null;
+const navLinks = document.querySelectorAll('.nav-menu a');
+const navMenu = document.querySelector('.nav-menu');
+const body = document.querySelector('body');
 
+// Function to close the menu
+function closeMenu() {
+    navMenu.classList.remove('active'); // Or however your menu is shown
+    body.classList.remove('nav-open');   // Remove the class from the body
+}
+
+// Add an event listener to each navigation link
+navLinks.forEach(link => {
+    link.addEventListener('click', closeMenu);
+});
 // --- Main Application Flow ---
 
 /**
