@@ -2,7 +2,9 @@
 
 A lightweight, accessible, and responsive web application for tracking personal finances, built with vanilla HTML, CSS, and JavaScript. This project fulfills the requirements of the "Building Responsive UI" summative assignment.
 
+
 **Live Demo website link:** https://nkemjefersonachia.github.io/Finance-Tracker/
+---
 **Demo Video Link:** https://youtu.be/7uTXWKt34Kk?feature=shared
 ---
 
