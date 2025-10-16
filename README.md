@@ -35,7 +35,7 @@ To run this project locally, follow these steps:
 ### **Installation**
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/NkemJefersonAchia/finance-tracker.git
+    git clone https://github.com/NkemJefersonAchia/Finance-Tracker.git
 2.  **Navigate to the project directory:**
     ```bash
     cd finance-tracker
