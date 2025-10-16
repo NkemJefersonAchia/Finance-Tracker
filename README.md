@@ -1,6 +1,6 @@
 # FAPSHI - Student Finance Tracker
 
-A lightweight, accessible, and responsive web application for tracking personal finances, built with vanilla HTML, CSS, and JavaScript. This project fulfills the requirements of the "Building Responsive UI" summative assignment.
+A lightweight, accessible, and responsive web application for tracking personal finances, built with vanilla HTML, CSS, and JavaScript. 
 
 
 **Live Demo website link:** https://nkemjefersonachia.github.io/Finance-Tracker/
@@ -35,8 +35,7 @@ To run this project locally, follow these steps:
 ### **Installation**
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/NkemJefersonAchia/finance-tracker.git](https://github.com/NkemJefersonAchia/finance-tracker.git)
-    ```
+    git clone https://github.com/NkemJefersonAchia/finance-tracker.git
 2.  **Navigate to the project directory:**
     ```bash
     cd finance-tracker
@@ -102,9 +101,6 @@ The application uses several regular expressions for form validation and search:
 - `Tab`: Move focus to the next interactive element.
 - `Shift + Tab`: Move focus to the previous interactive element.
 - `Enter`: Activate buttons, links, and sort table headers.
-- `Space`: Toggle checkboxes.
-- `Escape`: Close the delete confirmation modal.
-
 ---
 
 ## Accessibility Notes
@@ -118,7 +114,7 @@ The application uses several regular expressions for form validation and search:
 
 ## References and Inspiration
 
-This project was built with the help of documentation and inspiration from various sources across the web. Key resources include:
+This project was built with the help of documentation and inspiration from various sources across the web. They include:
 - **MDN Web Docs**: For comprehensive documentation on HTML, CSS, and JavaScript.
 - **CSS-Tricks**: For practical tips, tricks, and guides on modern CSS.
 - **Dribbble & Behance**: For UI/UX design inspiration.
